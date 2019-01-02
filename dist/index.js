@@ -53,7 +53,7 @@ class Upload {
         return this.uploadId;
     }
     resume() {
-        RNTusClient.resume(this.uploadId, (hasBeenResumed) => {
+        RNTusClient.resume(this.options.uploadId || this.uploadId, (hasBeenResumed) => {
             if (!hasBeenResumed) {
                 this.emitError(new Error('Error while resuming the upload'));
             }
